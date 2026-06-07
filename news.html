@@ -1,32 +1,326 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>お知らせ｜城民</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>お知らせ | 城民</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .news-page-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .news-page-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(214,168,79,0.2);
+      text-decoration: none;
+      transition: background 0.2s;
+      cursor: default;
+    }
+
+    .news-page-item:first-child {
+      border-top: 1px solid rgba(214,168,79,0.2);
+    }
+
+    .news-page-item.has-link {
+      cursor: pointer;
+    }
+
+    .news-page-item.has-link:hover .news-page-title {
+      color: var(--gold-dark);
+    }
+
+    .news-page-item.has-link:hover {
+      background: rgba(214,168,79,0.04);
+      margin: 0 -24px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .news-page-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      flex-shrink: 0;
+      min-width: 110px;
+    }
+
+    .news-page-date {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.85rem;
+      color: var(--gold-dark);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    .news-page-badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 3px;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+    }
+
+    .badge-info {
+      background: var(--navy);
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+
+    .badge-update {
+      background: transparent;
+      color: var(--text-mid);
+      border: 1px solid var(--text-mid);
+    }
+
+    .badge-new {
+      background: #c0392b;
+      color: white;
+    }
+
+    .news-page-body {
+      flex: 1;
+    }
+
+    .news-page-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      color: var(--navy);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+      line-height: 1.6;
+      transition: color 0.2s;
+    }
+
+    .news-page-excerpt {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      letter-spacing: 0.03em;
+    }
+
+    /* 詳細記事パネル */
+    .news-detail-panel {
+      display: none;
+      background: var(--cream);
+      border: 1px solid rgba(214,168,79,0.25);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin-top: 16px;
+    }
+
+    .news-detail-panel.open {
+      display: block;
+    }
+
+    .news-detail-panel p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 2;
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+
+    .news-detail-panel p:last-child {
+      margin-bottom: 0;
+    }
+
+    .news-toggle-btn {
+      background: none;
+      border: none;
+      color: var(--gold-dark);
+      font-size: 0.82rem;
+      cursor: pointer;
+      padding: 6px 0;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 6px;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .news-toggle-btn:hover {
+      opacity: 0.75;
+    }
+
+    .news-toggle-arrow {
+      display: inline-block;
+      transition: transform 0.25s;
+      font-size: 0.75rem;
+    }
+
+    .news-toggle-btn.open .news-toggle-arrow {
+      transform: rotate(180deg);
+    }
+
+    /* 空状態 */
+    .news-empty {
+      text-align: center;
+      padding: 60px 0;
+      color: var(--text-mid);
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+
+    @media (max-width: 600px) {
+      .news-page-item {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .news-page-meta {
+        flex-direction: row;
+        align-items: center;
+        min-width: unset;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <header class="site-header">
-    <a href="index.html" class="logo">🏯 城民</a>
-  </header>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none"><rect x="16" y="2" width="8" height="4" rx="1" fill="#D6A84F"/><rect x="14" y="6" width="12" height="3" rx="1" fill="#D6A84F"/><rect x="10" y="9" width="20" height="4" rx="1" fill="#D6A84F"/><rect x="8" y="13" width="24" height="3" fill="#D6A84F"/><rect x="6" y="16" width="28" height="5" rx="1" fill="#D6A84F"/><rect x="12" y="21" width="16" height="3" fill="#D6A84F"/><rect x="4" y="24" width="32" height="4" rx="1" fill="#D6A84F"/><rect x="8" y="28" width="24" height="10" rx="2" fill="#D6A84F"/><rect x="15" y="30" width="4" height="8" rx="1" fill="#071F3A"/><rect x="22" y="30" width="4" height="8" rx="1" fill="#071F3A"/></svg>
+      城民
+    </a>
+    <nav>
+      <a href="index.html">ホーム</a>
+      <a href="index.html#about">城民とは</a>
+      <a href="index.html#features">機能紹介</a>
+      <a href="news.html">お知らせ</a>
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="contact.html">お問い合わせ</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニュー" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">ホーム</a>
+  <a href="index.html#about">城民とは</a>
+  <a href="index.html#features">機能紹介</a>
+  <a href="news.html">お知らせ</a>
+  <a href="terms.html">利用規約</a>
+  <a href="privacy.html">プライバシーポリシー</a>
+  <a href="contact.html">お問い合わせ</a>
+</nav>
 
-  <main class="legal-page">
-    <section class="legal-card">
-      <h1>お知らせ</h1>
+<div class="subpage-hero">
+  <div class="subpage-hero-inner">
+    <div class="gold-line-deco"><span>◆</span></div>
+    <h1 class="subpage-title">お知らせ</h1>
+    <p class="subpage-subtitle">News &amp; Updates</p>
+  </div>
+</div>
 
-      <div class="news-list">
-        <p><strong>2026.06.07</strong><br>城民公式サイトを公開しました。</p>
-        <p><strong>2026.06.06</strong><br>設定ページと各種ルールページを連携しました。</p>
-        <p><strong>2026.06.05</strong><br>DM・プロフィール画面のデザインを改善しました。</p>
+<div class="subpage-content" style="max-width:800px;">
+  <div class="content-card">
+
+    <div class="news-page-list">
+
+      <!-- 記事1 -->
+      <div class="news-page-item">
+        <div class="news-page-meta">
+          <span class="news-page-date">2026.06.01</span>
+          <span class="news-page-badge badge-info">お知らせ</span>
+        </div>
+        <div class="news-page-body">
+          <div class="news-page-title">公式サイトを公開しました</div>
+          <div class="news-page-excerpt">城民の公式サイトをオープンしました。アプリのリリースに向けて準備を進めています。</div>
+          <button class="news-toggle-btn" onclick="toggleDetail(this)">
+            続きを読む <span class="news-toggle-arrow">▼</span>
+          </button>
+          <div class="news-detail-panel">
+            <p>城民の公式サイトをオープンしました！</p>
+            <p>城民は、いだちゃんねるファン同士がつながり、交流できる非公式コミュニティアプリです。タイムライン投稿・同行者募集・DM・プロフィール機能など、推し活をもっと楽しくする機能を開発中です。</p>
+            <p>アプリ本体はApp Storeにてまもなくリリース予定です。続報をお待ちください！</p>
+          </div>
+        </div>
       </div>
 
-      <p>
-        <a href="index.html">トップページへ戻る</a>
-      </p>
-    </section>
-  </main>
+      <!-- 記事2 -->
+      <div class="news-page-item">
+        <div class="news-page-meta">
+          <span class="news-page-date">2026.05.25</span>
+          <span class="news-page-badge badge-update">開発情報</span>
+        </div>
+        <div class="news-page-body">
+          <div class="news-page-title">アプリの開発状況について</div>
+          <div class="news-page-excerpt">現在の開発進捗と、リリースに向けたスケジュールをお伝えします。</div>
+          <button class="news-toggle-btn" onclick="toggleDetail(this)">
+            続きを読む <span class="news-toggle-arrow">▼</span>
+          </button>
+          <div class="news-detail-panel">
+            <p>城民アプリの開発状況についてご報告します。</p>
+            <p>現在、タイムライン投稿・同行者募集・DM・プロフィールの4つのコア機能の実装が完了し、テスト段階に入っています。デザインの最終調整とバグ修正を行っており、App Storeへの申請準備を進めています。</p>
+            <p>引き続き応援よろしくお願いいたします。リリース日が決まり次第、こちらのサイトおよびSNSにてお知らせします。</p>
+          </div>
+        </div>
+      </div>
 
+      <!-- 記事3 -->
+      <div class="news-page-item">
+        <div class="news-page-meta">
+          <span class="news-page-date">2026.05.10</span>
+          <span class="news-page-badge badge-update">コンセプト</span>
+        </div>
+        <div class="news-page-body">
+          <div class="news-page-title">城民のコンセプト</div>
+          <div class="news-page-excerpt">なぜ城民を作ろうと思ったのか。その想いをお伝えします。</div>
+          <button class="news-toggle-btn" onclick="toggleDetail(this)">
+            続きを読む <span class="news-toggle-arrow">▼</span>
+          </button>
+          <div class="news-detail-panel">
+            <p>城民を作ろうと思ったのは、「同じ推しを持つ仲間と、もっと気軽につながれる場所がほしい」という想いからです。</p>
+            <p>SNSでは流れてしまう日常の推し活の記録も、城民ならプロフィールや参戦履歴として残せます。同行者を探したり、DMで仲良くなったり——ファン同士の縁を深める場所を目指しています。</p>
+            <p>城民が、みんなの"帰ってこられる場所"になりますように。</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /news-page-list -->
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">
+      <svg width="32" height="32" viewBox="0 0 40 40" fill="none"><rect x="16" y="2" width="8" height="4" rx="1" fill="#D6A84F"/><rect x="14" y="6" width="12" height="3" rx="1" fill="#D6A84F"/><rect x="10" y="9" width="20" height="4" rx="1" fill="#D6A84F"/><rect x="8" y="13" width="24" height="3" fill="#D6A84F"/><rect x="6" y="16" width="28" height="5" rx="1" fill="#D6A84F"/><rect x="12" y="21" width="16" height="3" fill="#D6A84F"/><rect x="4" y="24" width="32" height="4" rx="1" fill="#D6A84F"/><rect x="8" y="28" width="24" height="10" rx="2" fill="#D6A84F"/><rect x="15" y="30" width="4" height="8" rx="1" fill="#071F3A"/><rect x="22" y="30" width="4" height="8" rx="1" fill="#071F3A"/></svg>
+      城民
+    </a>
+    <div class="footer-links">
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="guideline.html">コミュニティガイドライン</a>
+      <a href="unofficial.html">非公式アプリについて</a>
+      <a href="contact.html">お問い合わせ</a>
+    </div>
+    <p class="footer-copy">© 2026 城民 All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  function toggleDetail(btn) {
+    const panel = btn.nextElementSibling;
+    const isOpen = panel.classList.contains('open');
+    panel.classList.toggle('open');
+    btn.classList.toggle('open');
+    btn.childNodes[0].textContent = isOpen ? '続きを読む ' : '閉じる ';
+  }
+</script>
 </body>
 </html>
