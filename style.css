@@ -575,9 +575,9 @@ nav a:hover {
 .iphone-mock {
   width: 100%;
   max-width: 200px;
-  aspect-ratio: 9/19;
-  background: var(--navy-dark);
-  border-radius: 28px;
+  aspect-ratio: 390 / 844;
+  background: #000;
+  border-radius: 36px;
   border: 3px solid #2a3a50;
   position: relative;
   overflow: hidden;
@@ -588,16 +588,21 @@ nav a:hover {
 }
 
 .iphone-mock::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 22px;
-  background: var(--navy-dark);
-  border-radius: 0 0 16px 16px;
-  z-index: 10;
+  display: none;
+}
+
+.iphone-mock img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border-radius: 33px;
+}
+
+/* DM画面は縦横比が若干異なるため個別調整 */
+.iphone-mock img.screen-dm-img {
+  object-fit: fill;
 }
 
 .iphone-screen {
@@ -1199,6 +1204,214 @@ footer {
   background: rgba(7,31,58,0.85);
   box-shadow: 0 4px 16px rgba(214,168,79,0.2);
   transform: translateY(-1px);
+}
+
+/* ===== 新モックアップ共通スタイル ===== */
+.ms-status {
+  height: 22px;
+  background: #071F3A;
+  flex-shrink: 0;
+}
+
+.ms-header {
+  background: #071F3A;
+  padding: 5px 10px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #D6A84F;
+  flex-shrink: 0;
+}
+
+.ms-header-title {
+  font-size: 7px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 0.03em;
+}
+
+.ms-header-sub {
+  font-size: 4px;
+  color: var(--gold);
+  margin-top: 1px;
+}
+
+.ms-icon-btn {
+  font-size: 7px;
+  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+}
+
+.ms-search {
+  background: white;
+  border-radius: 12px;
+  margin: 5px 8px 4px;
+  padding: 4px 8px;
+  font-size: 5px;
+  color: #aaa;
+  border: 0.5px solid #e8e8e8;
+  flex-shrink: 0;
+}
+
+.ms-tab-row {
+  display: flex;
+  background: white;
+  border-bottom: 0.5px solid #eee;
+  flex-shrink: 0;
+}
+
+.ms-tab {
+  flex: 1;
+  text-align: center;
+  padding: 5px 0 4px;
+  font-size: 5px;
+  color: #aaa;
+}
+
+.ms-tab.active {
+  color: #D6A84F;
+  font-weight: bold;
+  border-bottom: 1.5px solid #D6A84F;
+}
+
+.ms-post {
+  background: white;
+  margin: 4px 6px;
+  border-radius: 8px;
+  padding: 7px 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.ms-post-top {
+  display: flex;
+  gap: 5px;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.ms-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #ddd;
+}
+
+.ms-post-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.ms-uname {
+  font-size: 5.5px;
+  font-weight: bold;
+  color: #071F3A;
+}
+
+.ms-verified {
+  font-size: 5px;
+  color: #D6A84F;
+}
+
+.ms-age-loc {
+  font-size: 4px;
+  color: #888;
+  margin-top: 1px;
+}
+
+.ms-time {
+  font-size: 4px;
+  color: #D6A84F;
+  margin-top: 1px;
+}
+
+.ms-post-text {
+  font-size: 5px;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.ms-post-img-placeholder {
+  width: 100%;
+  height: 32px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #c8a06040, #071F3A30);
+  margin-bottom: 4px;
+}
+
+.ms-post-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.ms-heart-filled {
+  font-size: 5px;
+  color: #D6A84F;
+}
+
+.ms-comment {
+  font-size: 5px;
+  color: #888;
+}
+
+.ms-bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 0.5px solid #eee;
+  display: flex;
+  padding: 4px 0 6px;
+}
+
+.ms-nav-item {
+  flex: 1;
+  text-align: center;
+  font-size: 8px;
+  color: #bbb;
+  line-height: 1.2;
+}
+
+.ms-nav-item span {
+  display: block;
+  font-size: 3.5px;
+}
+
+.ms-nav-item.active {
+  color: #D6A84F;
+}
+
+/* 同行者カード */
+.ms-recruit-card {
+  background: white;
+  margin: 4px 6px;
+  border-radius: 8px;
+  padding: 7px 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.ms-event-box {
+  background: #f8f5ee;
+  border-radius: 5px;
+  padding: 4px 6px;
+  margin-bottom: 3px;
+}
+
+.ms-event-row {
+  font-size: 4.5px;
+  color: #444;
+}
+
+.ms-tag {
+  background: rgba(7,31,58,0.08);
+  color: #071F3A;
+  font-size: 4px;
+  padding: 1px 4px;
+  border-radius: 3px;
 }
 
 /* ===== RESPONSIVE ===== */
