@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>城民 | いだちゃんねるファンコミュニティアプリ</title>
+  <meta name="description" content="城民は、いだちゃんねるファン同士がつながり、交流できる非公式コミュニティアプリです。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="16" y="2" width="8" height="4" rx="1" fill="#D6A84F"/>
+        <rect x="14" y="6" width="12" height="3" rx="1" fill="#D6A84F"/>
+        <rect x="10" y="9" width="20" height="4" rx="1" fill="#D6A84F"/>
+        <rect x="8" y="13" width="24" height="3" fill="#D6A84F"/>
+        <rect x="6" y="16" width="28" height="5" rx="1" fill="#D6A84F"/>
+        <rect x="12" y="21" width="16" height="3" fill="#D6A84F"/>
+        <rect x="4" y="24" width="32" height="4" rx="1" fill="#D6A84F"/>
+        <rect x="8" y="28" width="24" height="10" rx="2" fill="#D6A84F"/>
+        <rect x="15" y="30" width="4" height="8" rx="1" fill="#071F3A"/>
+        <rect x="22" y="30" width="4" height="8" rx="1" fill="#071F3A"/>
+      </svg>
+      城民
+    </a>
+    <nav>
+      <a href="index.html">ホーム</a>
+      <a href="index.html#about">城民とは</a>
+      <a href="index.html#features">機能紹介</a>
+      <a href="index.html#news">お知らせ</a>
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="contact.html">お問い合わせ</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニュー" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- モバイルナビ -->
+<nav class="mobile-nav" id="mobile-nav" role="navigation">
+  <a href="index.html">ホーム</a>
+  <a href="index.html#about">城民とは</a>
+  <a href="index.html#features">機能紹介</a>
+  <a href="index.html#news">お知らせ</a>
+  <a href="terms.html">利用規約</a>
+  <a href="privacy.html">プライバシーポリシー</a>
+  <a href="contact.html">お問い合わせ</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <!-- 背景エフェクト -->
+  <div class="stars"></div>
+
+  <!-- 月 -->
+  <div class="moon"></div>
+
+  <!-- 金の和柄雲 (SVG) -->
+  <svg style="position:absolute;top:0;right:0;width:55%;height:100%;z-index:2;pointer-events:none;" viewBox="0 0 600 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- 和柄の雲 -->
+    <g opacity="0.18" fill="#D6A84F">
+      <ellipse cx="480" cy="80" rx="90" ry="22"/>
+      <ellipse cx="510" cy="75" rx="60" ry="18"/>
+      <ellipse cx="450" cy="82" rx="55" ry="16"/>
+      <ellipse cx="350" cy="130" rx="70" ry="18"/>
+      <ellipse cx="380" cy="125" rx="50" ry="14"/>
+      <ellipse cx="430" cy="560" rx="80" ry="20"/>
+      <ellipse cx="460" cy="555" rx="55" ry="16"/>
+      <ellipse cx="510" cy="562" rx="50" ry="14"/>
+    </g>
+    <!-- 和柄の細い線 -->
+    <g stroke="#D6A84F" stroke-width="0.5" opacity="0.2" fill="none">
+      <path d="M 20 20 Q 80 40 140 20 Q 200 0 260 20"/>
+      <path d="M 20 40 Q 80 60 140 40 Q 200 20 260 40"/>
+      <path d="M 550 600 Q 480 580 410 600 Q 340 620 270 600"/>
+      <path d="M 550 620 Q 480 600 410 620 Q 340 640 270 620"/>
+    </g>
+    <!-- 波紋 -->
+    <g stroke="#D6A84F" stroke-width="0.6" opacity="0.12" fill="none">
+      <circle cx="500" cy="300" r="60"/>
+      <circle cx="500" cy="300" r="90"/>
+      <circle cx="500" cy="300" r="120"/>
+    </g>
+  </svg>
+
+  <!-- 城のイラスト (SVG) -->
+  <svg style="position:absolute;right:0;bottom:0;width:52%;height:88%;z-index:3;pointer-events:none;" viewBox="0 0 500 700" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+    <!-- グロー -->
+    <defs>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <filter id="glow2">
+        <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <radialGradient id="castleGlow" cx="50%" cy="80%" r="50%">
+        <stop offset="0%" stop-color="#D6A84F" stop-opacity="0.3"/>
+        <stop offset="100%" stop-color="#D6A84F" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <!-- 城の光の輪 -->
+    <ellipse cx="250" cy="580" rx="200" ry="30" fill="url(#castleGlow)"/>
+    <!-- 最上部の旗 -->
+    <rect x="246" y="60" width="3" height="30" fill="#D6A84F" opacity="0.9"/>
+    <polygon points="249,60 265,67 249,74" fill="#D6A84F" opacity="0.9"/>
+    <!-- 天守閣 最上部屋根 -->
+    <polygon points="180,90 250,60 320,90" fill="#1a3060" stroke="#D6A84F" stroke-width="0.8" opacity="0.95"/>
+    <rect x="195" y="90" width="110" height="35" fill="#142850" stroke="#D6A84F" stroke-width="0.5" opacity="0.95"/>
+    <!-- 2層目屋根 -->
+    <polygon points="165,125 250,95 335,125" fill="#1a3060" stroke="#D6A84F" stroke-width="0.8" opacity="0.95"/>
+    <rect x="175" y="125" width="150" height="40" fill="#142850" stroke="#D6A84F" stroke-width="0.5" opacity="0.95"/>
+    <!-- 3層目屋根 -->
+    <polygon points="145,165 250,130 355,165" fill="#1a3060" stroke="#D6A84F" stroke-width="0.8" opacity="0.95"/>
+    <rect x="155" y="165" width="190" height="50" fill="#142850" stroke="#D6A84F" stroke-width="0.5" opacity="0.95"/>
+    <!-- 4層目屋根 -->
+    <polygon points="120,215 250,175 380,215" fill="#1a3060" stroke="#D6A84F" stroke-width="0.8" opacity="0.95"/>
+    <rect x="130" y="215" width="240" height="55" fill="#0d1e3a" stroke="#D6A84F" stroke-width="0.5" opacity="0.95"/>
+    <!-- 石垣基礎上部屋根 -->
+    <polygon points="95,270 250,230 405,270" fill="#1a3060" stroke="#D6A84F" stroke-width="0.8" opacity="0.95"/>
+    <rect x="100" y="270" width="300" height="60" fill="#0a1830" stroke="#D6A84F" stroke-width="0.5" opacity="0.95"/>
+    <!-- 石垣 -->
+    <rect x="80" y="330" width="340" height="80" rx="4" fill="#0d1e3a" stroke="#2a4a7a" stroke-width="1" opacity="0.95"/>
+    <!-- 石垣の模様 -->
+    <g stroke="#1a3060" stroke-width="0.7" opacity="0.6">
+      <line x1="80" y1="355" x2="420" y2="355"/>
+      <line x1="80" y1="378" x2="420" y2="378"/>
+      <line x1="120" y1="330" x2="120" y2="410"/>
+      <line x1="160" y1="330" x2="160" y2="410"/>
+      <line x1="200" y1="330" x2="200" y2="410"/>
+      <line x1="240" y1="330" x2="240" y2="410"/>
+      <line x1="280" y1="330" x2="280" y2="410"/>
+      <line x1="320" y1="330" x2="320" y2="410"/>
+      <line x1="360" y1="330" x2="360" y2="410"/>
+    </g>
+    <!-- 土台 -->
+    <rect x="60" y="410" width="380" height="120" rx="4" fill="#071220" opacity="0.95"/>
+    <!-- 土台の石の模様 -->
+    <g stroke="#0d1e3a" stroke-width="0.8" opacity="0.5">
+      <line x1="60" y1="445" x2="440" y2="445"/>
+      <line x1="60" y1="480" x2="440" y2="480"/>
+      <line x1="110" y1="410" x2="110" y2="530"/>
+      <line x1="180" y1="410" x2="180" y2="530"/>
+      <line x1="250" y1="410" x2="250" y2="530"/>
+      <line x1="320" y1="410" x2="320" y2="530"/>
+      <line x1="390" y1="410" x2="390" y2="530"/>
+    </g>
+    <!-- 窓の光 -->
+    <g filter="url(#glow)">
+      <rect x="220" y="100" width="16" height="12" rx="2" fill="#f0d070" opacity="0.8"/>
+      <rect x="210" y="140" width="14" height="10" rx="2" fill="#f0d070" opacity="0.7"/>
+      <rect x="268" y="140" width="14" height="10" rx="2" fill="#f0d070" opacity="0.7"/>
+      <rect x="205" y="185" width="14" height="10" rx="2" fill="#f0d070" opacity="0.75"/>
+      <rect x="278" y="185" width="14" height="10" rx="2" fill="#f0d070" opacity="0.75"/>
+      <rect x="185" y="235" width="14" height="10" rx="2" fill="#f0d070" opacity="0.7"/>
+      <rect x="248" y="235" width="14" height="10" rx="2" fill="#f0d070" opacity="0.7"/>
+      <rect x="302" y="235" width="14" height="10" rx="2" fill="#f0d070" opacity="0.7"/>
+      <rect x="165" y="285" width="14" height="10" rx="2" fill="#f0d070" opacity="0.7"/>
+      <rect x="240" y="285" width="14" height="10" rx="2" fill="#f0d070" opacity="0.8"/>
+      <rect x="318" y="285" width="14" height="10" rx="2" fill="#f0d070" opacity="0.7"/>
+    </g>
+    <!-- 提灯 左 -->
+    <line x1="120" y1="280" x2="110" y2="310" stroke="#8B6914" stroke-width="1"/>
+    <ellipse cx="110" cy="315" rx="8" ry="12" fill="#D6A84F" filter="url(#glow)" opacity="0.9"/>
+    <rect x="107" y="303" width="6" height="3" rx="1" fill="#8B6914"/>
+    <rect x="107" y="324" width="6" height="3" rx="1" fill="#8B6914"/>
+    <!-- 提灯 右 -->
+    <line x1="380" y1="280" x2="390" y2="310" stroke="#8B6914" stroke-width="1"/>
+    <ellipse cx="390" cy="315" rx="8" ry="12" fill="#D6A84F" filter="url(#glow)" opacity="0.9"/>
+    <rect x="387" y="303" width="6" height="3" rx="1" fill="#8B6914"/>
+    <rect x="387" y="324" width="6" height="3" rx="1" fill="#8B6914"/>
+    <!-- 縁取りの金色ライン -->
+    <g stroke="#D6A84F" stroke-width="0.8" fill="none" opacity="0.5">
+      <line x1="195" y1="90" x2="305" y2="90"/>
+      <line x1="175" y1="125" x2="325" y2="125"/>
+      <line x1="155" y1="165" x2="345" y2="165"/>
+      <line x1="130" y1="215" x2="370" y2="215"/>
+      <line x1="100" y1="270" x2="400" y2="270"/>
+    </g>
+    <!-- 松の木 左 -->
+    <g opacity="0.7">
+      <rect x="55" y="460" width="5" height="70" fill="#3a2a10"/>
+      <ellipse cx="57" cy="450" rx="20" ry="14" fill="#1a3a1a"/>
+      <ellipse cx="57" cy="440" rx="15" ry="12" fill="#1e441e"/>
+      <ellipse cx="57" cy="430" rx="10" ry="8" fill="#224a22"/>
+    </g>
+    <!-- 松の木 右 -->
+    <g opacity="0.7">
+      <rect x="440" y="460" width="5" height="70" fill="#3a2a10"/>
+      <ellipse cx="443" cy="450" rx="20" ry="14" fill="#1a3a1a"/>
+      <ellipse cx="443" cy="440" rx="15" ry="12" fill="#1e441e"/>
+      <ellipse cx="443" cy="430" rx="10" ry="8" fill="#224a22"/>
+    </g>
+  </svg>
+
+  <!-- ヒーローコンテンツ -->
+  <div class="hero-content">
+    <div class="hero-left">
+      <!-- 城アイコン -->
+      <svg class="hero-castle-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="21" y="2" width="10" height="5" rx="1" fill="#D6A84F"/>
+        <rect x="18" y="7" width="16" height="4" rx="1" fill="#D6A84F"/>
+        <rect x="13" y="11" width="26" height="5" rx="1" fill="#D6A84F"/>
+        <rect x="10" y="16" width="32" height="4" fill="#D6A84F"/>
+        <rect x="7" y="20" width="38" height="7" rx="1" fill="#D6A84F"/>
+        <rect x="15" y="27" width="22" height="4" fill="#D6A84F"/>
+        <rect x="5" y="31" width="42" height="5" rx="1" fill="#D6A84F"/>
+        <rect x="10" y="36" width="32" height="14" rx="2" fill="#D6A84F"/>
+        <rect x="19" y="39" width="6" height="11" rx="1" fill="#071F3A"/>
+        <rect x="28" y="39" width="6" height="11" rx="1" fill="#071F3A"/>
+      </svg>
+
+      <h1 class="hero-title">城&nbsp;民</h1>
+      <p class="hero-subtitle">いだちゃんねるファンが集う城</p>
+      <p class="hero-desc">
+        城民は、いだちゃんねるファン同士が<br>
+        つながり、交流できる非公式コミュニティアプリです。
+      </p>
+
+      <a href="#" class="cta-btn" role="button">
+        <span class="cta-btn-main">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          App Storeで公開予定
+        </span>
+        <span class="cta-btn-sub">まもなくリリース</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WAVE DIVIDER ===== -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 金色の上部カーブ -->
+    <path d="M0,20 C360,80 1080,0 1440,60 L1440,0 L0,0 Z" fill="#D6A84F" opacity="0.25"/>
+    <!-- クリームの大きな波 -->
+    <path d="M0,60 C240,10 480,100 720,60 C960,20 1200,90 1440,50 L1440,120 L0,120 Z" fill="#F8F4EB"/>
+  </svg>
+</div>
+
+<!-- ===== 城民とは？ ===== -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div class="gold-line-deco"><span>◆</span></div>
+    <h2 class="section-title">城民とは？</h2>
+    <p class="section-sub">推しをきっかけに、ファン同士がつながることができる場所です。</p>
+
+    <div class="features-grid" id="features">
+      <!-- 機能1 -->
+      <div class="feature-card fade-in">
+        <div class="feature-icon-wrap">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 20h9" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="feature-gold-line"></div>
+        <h3 class="feature-title">タイムライン投稿</h3>
+        <p class="feature-desc">日常や推し活を共有しよう。写真やコメントで気軽に投稿できます。</p>
+      </div>
+
+      <!-- 機能2 -->
+      <div class="feature-card fade-in">
+        <div class="feature-icon-wrap">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="9" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 3.13a4 4 0 010 7.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="feature-gold-line"></div>
+        <h3 class="feature-title">同行者募集</h3>
+        <p class="feature-desc">ライブやイベントの仲間を探せます。初めてでも安心して参加できます。</p>
+      </div>
+
+      <!-- 機能3 -->
+      <div class="feature-card fade-in">
+        <div class="feature-icon-wrap">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="feature-gold-line"></div>
+        <h3 class="feature-title">DM機能</h3>
+        <p class="feature-desc">気の合う仲間と1対1でメッセージのやり取りができます。</p>
+      </div>
+
+      <!-- 機能4 -->
+      <div class="feature-card fade-in">
+        <div class="feature-icon-wrap">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="feature-gold-line"></div>
+        <h3 class="feature-title">プロフィール機能</h3>
+        <p class="feature-desc">推し歴や参戦履歴を記録して、自分だけのプロフィールを作れます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== アプリ画面イメージ ===== -->
+<section class="screens-section">
+  <div class="screens-inner">
+    <div class="gold-line-deco"><span>◆</span></div>
+    <h2 class="section-title">アプリ画面イメージ</h2>
+    <p class="section-sub" style="margin-bottom:40px;">直感的で使いやすいデザインで、<br>ファン同士の交流をサポートします。</p>
+
+    <div class="screens-grid">
+
+      <!-- タイムライン -->
+      <div class="screen-item fade-in">
+        <div class="iphone-mock">
+          <div class="iphone-screen screen-timeline">
+            <div class="screen-header-bar">
+              <span>タイムライン</span>
+              <span>⚙</span>
+            </div>
+            <!-- 投稿1 -->
+            <div class="screen-post">
+              <div style="display:flex;align-items:center;margin-bottom:4px;">
+                <div class="screen-post-avatar" style="background:#D6A84F;"></div>
+                <div class="screen-post-name" style="font-size:6px;font-weight:bold;color:#071F3A;margin-left:4px;">しろたん</div>
+              </div>
+              <div class="screen-post-text">今日は推しのライブだったー！みんなと一緒に盛り上がれて最高🏯✨ #いだちゃんねる #ライブ参戦</div>
+              <div class="screen-post-img"></div>
+              <div class="screen-post-actions">
+                <span>♡ 42</span>
+                <span>💬 3</span>
+              </div>
+            </div>
+            <!-- 投稿2 -->
+            <div class="screen-post">
+              <div style="display:flex;align-items:center;margin-bottom:4px;">
+                <div class="screen-post-avatar" style="background:#4a90d9;"></div>
+                <div class="screen-post-name" style="font-size:6px;font-weight:bold;color:#071F3A;margin-left:4px;">お城</div>
+              </div>
+              <div class="screen-post-text">グッズ揃ったー！やっぱり最高すぎる🎊</div>
+              <div class="screen-post-img" style="background:linear-gradient(135deg,#4a90d960,#071F3A40);"></div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label-btn">タイムライン</div>
+      </div>
+
+      <!-- 同行者募集 -->
+      <div class="screen-item fade-in">
+        <div class="iphone-mock">
+          <div class="iphone-screen screen-recruit">
+            <div class="screen-header-bar">
+              <span>同行者募集</span>
+              <span>募集中 7</span>
+            </div>
+            <div class="screen-recruit-card">
+              <div class="screen-recruit-thumb"></div>
+              <div class="screen-recruit-title">いだちゃんねる LIVE 2026</div>
+              <div class="screen-recruit-info">日時: 2026/07/4<br>場所: 幕張メッセ<br>残り: あと2人</div>
+              <div class="screen-recruit-badge">募集中</div>
+            </div>
+            <div class="screen-recruit-card" style="margin-top:2px;">
+              <div class="screen-recruit-thumb" style="background:linear-gradient(135deg,#3a5a2a,#1a3a1a);"></div>
+              <div class="screen-recruit-title">イベント参加！</div>
+              <div class="screen-recruit-info">日時: 2026/03/30<br>場所: 大阪ホール</div>
+              <div class="screen-recruit-badge">あと1人</div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label-btn">同行者募集</div>
+      </div>
+
+      <!-- DM機能 -->
+      <div class="screen-item fade-in">
+        <div class="iphone-mock">
+          <div class="iphone-screen screen-dm">
+            <div class="screen-dm-header">
+              <div class="screen-dm-avatar"></div>
+              <span>ゆうき</span>
+            </div>
+            <div style="padding: 4px 0; display:flex; flex-direction:column; gap:5px; margin-top:4px;">
+              <div class="screen-msg them">
+                <div class="screen-bubble">はじめまして！ライブ一緒に行きませんか？</div>
+                <span style="font-size:4px;color:#999;margin-top:2px;">30分前</span>
+              </div>
+              <div class="screen-msg me">
+                <div class="screen-bubble" style="background:#D6A84F;">こんにちは！ぜひ行きたいです🎉</div>
+              </div>
+              <div class="screen-msg them">
+                <div class="screen-bubble">日時と場所はもう決まっていますか？</div>
+                <span style="font-size:4px;color:#999;margin-top:2px;">20分前</span>
+              </div>
+              <div class="screen-msg me">
+                <div class="screen-bubble" style="background:#D6A84F;">まだです！一緒に決めましょう〜！</div>
+              </div>
+            </div>
+            <div style="position:absolute;bottom:12px;left:8px;right:8px;background:white;border-radius:10px;padding:5px 8px;font-size:5px;color:#aaa;border:0.5px solid #ddd;">メッセージを入力</div>
+          </div>
+        </div>
+        <div class="screen-label-btn">DM機能</div>
+      </div>
+
+      <!-- プロフィール -->
+      <div class="screen-item fade-in">
+        <div class="iphone-mock">
+          <div class="iphone-screen screen-profile">
+            <div class="screen-profile-header">
+              <div class="screen-profile-avatar"></div>
+              <div class="screen-profile-name">しろたん</div>
+              <div style="font-size:4.5px;color:rgba(255,255,255,0.6);">@shinstar_ida</div>
+            </div>
+            <div class="screen-profile-stats">
+              <div class="screen-stat">
+                <div class="screen-stat-num">128</div>
+                <div class="screen-stat-label">投稿</div>
+              </div>
+              <div class="screen-stat">
+                <div class="screen-stat-num">86</div>
+                <div class="screen-stat-label">フォロー</div>
+              </div>
+              <div class="screen-stat">
+                <div class="screen-stat-num">245</div>
+                <div class="screen-stat-label">フォロワー</div>
+              </div>
+            </div>
+            <div style="padding:5px 8px;font-size:5px;color:#555;line-height:1.5;">いだちゃんねるが大好きな城民です！ライブ参戦が生きがい🏯</div>
+            <div class="screen-profile-section">
+              <div class="screen-profile-section-title">参戦履歴</div>
+              <div class="screen-history-item">
+                <div class="screen-history-thumb"></div>
+                <div class="screen-history-text">2025.05.10<br>いだちゃんねるLIVE 2025</div>
+              </div>
+              <div class="screen-history-item">
+                <div class="screen-history-thumb" style="background:linear-gradient(135deg,#4a7a2a,#D6A84F);"></div>
+                <div class="screen-history-text">2025.01.18<br>新年会イベント</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label-btn">プロフィール</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== DARK SECTION ===== -->
+<section class="dark-section" id="news">
+  <div class="dark-inner">
+
+    <!-- 左：城民について -->
+    <div class="dark-col">
+      <h3 class="dark-col-title">城民について</h3>
+      <p>
+        城民は、いだちゃんねるファンによる非公式コミュニティです。<br>
+        当サービスは、いだちゃんねる様および関係者様とは直接関係ありません。<br>
+        ファン同士の交流を目的として運営されています。
+        安心・安全なコミュニティ運営に努め、みんなが気持ちよく使える場所を目指します。
+      </p>
+    </div>
+
+    <!-- 中央：お知らせ -->
+    <div class="dark-col">
+      <h3 class="dark-col-title">お知らせ</h3>
+      <ul class="news-list">
+        <li><span class="news-date">2026.06.01</span>公式サイトを公開しました</li>
+        <li><span class="news-date">2026.05.25</span>アプリの開発状況について</li>
+        <li><span class="news-date">2026.05.10</span>城民のコンセプト</li>
+      </ul>
+      <a href="#" class="news-btn">お知らせ一覧へ</a>
+    </div>
+
+    <!-- 右：運営からのメッセージ -->
+    <div class="dark-col">
+      <h3 class="dark-col-title">運営からのメッセージ</h3>
+      <p class="dark-message">
+        城民が、みんなの<br>
+        "帰ってこられる場所"<br>
+        になりますように。<br><br>
+        同じ城に住む仲間として、<br>
+        最高の思い出を一緒に作りましょう。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">
+      <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="16" y="2" width="8" height="4" rx="1" fill="#D6A84F"/>
+        <rect x="14" y="6" width="12" height="3" rx="1" fill="#D6A84F"/>
+        <rect x="10" y="9" width="20" height="4" rx="1" fill="#D6A84F"/>
+        <rect x="8" y="13" width="24" height="3" fill="#D6A84F"/>
+        <rect x="6" y="16" width="28" height="5" rx="1" fill="#D6A84F"/>
+        <rect x="12" y="21" width="16" height="3" fill="#D6A84F"/>
+        <rect x="4" y="24" width="32" height="4" rx="1" fill="#D6A84F"/>
+        <rect x="8" y="28" width="24" height="10" rx="2" fill="#D6A84F"/>
+        <rect x="15" y="30" width="4" height="8" rx="1" fill="#071F3A"/>
+        <rect x="22" y="30" width="4" height="8" rx="1" fill="#071F3A"/>
+      </svg>
+      城民
+    </a>
+    <div class="footer-links">
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="guideline.html">コミュニティガイドライン</a>
+      <a href="unofficial.html">非公式アプリについて</a>
+      <a href="contact.html">お問い合わせ</a>
+    </div>
+    <p class="footer-copy">© 2026 城民 All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
